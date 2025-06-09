@@ -1,0 +1,197 @@
+.work-detail .section-container {
+    padding-top: 6rem;
+}
+
+.work-detail-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+.work-detail-media,
+.work-detail-features,
+.work-detail-system,
+.work-detail-core,
+.work-detail-future {
+    background-color: var(--card-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+.work-detail-future img{
+    border-radius: 24px;
+}
+.work-detail-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.work-detail-media video {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.caption {
+    margin-top: 0.5rem;
+    color: var(--sub-text-color);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.work-detail-features,
+.work-detail-core {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.work-detail-features .feature-text ul {
+    padding-left: 1.2rem;
+}
+
+.work-detail-features .feature-images {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.work-detail-features figure {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    flex: 1;
+}
+
+.work-detail-features figure .img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+}
+
+.work-detail-features figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.work-detail-features figcaption {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--sub-text-color);
+    text-align: center;
+}
+
+.work-detail-core .core-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+.subsection-title {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.work-detail-system .system-description ul {
+    padding-left: 1.2rem;
+}
+
+.system-diagram {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.system-diagram figure {
+    margin: 0;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.system-diagram figure img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.work-detail-core h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.work-detail-back {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.work-detail-back a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+@media (min-width: 769px) {
+
+    .work-detail .section-container {
+        max-width: 960px;
+    }
+
+    .work-detail-title {
+        font-size: 2.8rem;
+    }
+
+    .section-subtitle {
+        font-size: 2rem;
+    }
+    
+    .work-detail-features,
+    .work-detail-core {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 2rem;
+        gap: 2rem;
+    }
+    
+    .work-detail-features .feature-text,
+    .work-detail-core .core-text {
+        flex: 1;
+    }
+
+    .work-detail-features .feature-images {
+        flex: 1.2;
+    }
+    
+    .work-detail-core .core-image {
+        flex: 0 0 40%;
+    }
+
+    .work-detail-system .system-description {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .work-detail-system .system-spec {
+        flex: 1;
+    }
+
+    .system-diagram figure {
+        max-width: 60%;
+    }
+}

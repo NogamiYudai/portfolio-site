@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yudai Nogami's Portfolio</title>
-    <!-- CSSファイル名が test.css の場合は、そちらに書き換えてください -->
+    <title>NogamiYudai - Portfolio</title>
+    <link rel="icon" href="images/icon.png" type="image/png">
     <link rel="stylesheet" href="style.css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,17 +18,18 @@
         </div>
         <nav class="header-nav">
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#works">Works</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#works">WORKS</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="hero">
+            <canvas id="hero-canvas"></canvas>
             <div class="hero-content">
-                <h1 class="hero-title">Yudai Nogami</h1>
+                <h1 class="hero-title">Nogami Yudai</h1>
                 <p class="hero-subtitle"><span class="typing"></span></p>
             </div>
         </section>
@@ -41,13 +42,13 @@
                         <img src="images/work1.jpg" alt="研究成果物1の画像">
                     </div>
                     <div class="work-content">
-                        <h3 class="work-title">足裏荷重による歩行・跳躍可能なアバタ<br>操作システム（アニメーション制御）</h3>
+                        <h3 class="work-title">足裏荷重による歩行・跳躍可能なアバタ操作システム（アニメーション制御）</h3>
                         <div class="work-tags">
                             <span>Unity</span>
                             <span>C#</span>
                         </div>
                         <p class="work-description">
-                            足裏荷重を使用して、歩行・跳躍動作を行うアバタ制御システムです。
+                            ユーザの足裏荷重を利用して、VR空間でアバタの歩行・跳躍動作を行うアバタ制御システムです。ユーザの動作を推定し、状態遷移によってアバタをアニメーションさせます。
                         </p>
                         <a href="work1-detail.html" class="work-link">詳細を見る &rarr;</a>
                     </div>
@@ -65,7 +66,7 @@
                             <span>IK</span>
                         </div>
                         <p class="work-description">
-                            リグ制御による歩行・跳躍動作可能なアバタ制御システム。本研究ではユーザーの足裏荷重の変動によってアバターの足や腰などのリグを直接制御しています。
+                            現在、研究中のプロジェクトです。ユーザの足裏荷重でアバタのリグをIK制御し、歩行・跳躍動作を行うアバタ制御システムです。本研究ではユーザーの足裏荷重の変動によってアバターの足や腰などのリグを直接制御しています。
                         </p>
                         <a href="work2-detail.html" class="work-link">詳細を見る &rarr;</a>
                     </div>
@@ -77,19 +78,26 @@
             <h2 class="section-title">ABOUT ME</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="images/profile.jpg" alt="野上雄大のプロフィール写真">
+                    <img src="images/profile.gif" alt="野上雄大のプロフィール写真">
                 </div>
                 <div class="about-text">
                     <h3>野上 雄大 (のがみ ゆうだい)</h3>
                     <p>
-                        広島市立大学大学院情報科学研究科システム工学専攻に在籍しています。UnityとC#を用いたVR空間でのアバタの歩行動作について研究開発に注力しています。
+                        現在、広島市立大学大学院情報科学研究科システム工学専攻に在籍しています。
+                        UnityとC#を用いたVR空間でのアバタの歩行動作について研究開発に注力しています。
+                        創作系サークルと演劇部に所属しています。
                     </p>
                     <p>
-                        また、小中学生向けのプログラミングスクールでのアルバイト経験を通じて、<strong>複雑な技術も相手の目線に立って分かりやすく説明するティーチングスキル</strong>を培いました。生徒たちの「なぜできないか」という課題に粘り強く向き合い、解決に導くサポートを行う中で、<strong>高いコミュニケーション能力と課題発見能力</strong>も身につけることができました。この経験を活かし、チーム開発においても円滑な意思疎通と相互理解に貢献したいと考えています。
+                        また、小中学生向けのプログラミングスクールでのアルバイト経験を通じて、
+                        <strong>複雑な技術も相手の目線に立って分かりやすく説明する力</strong>を培いました。
+                        生徒たちの「なぜできないか」、「どうすればモチベーションを保てるか」という課題に粘り強く向き合い、
+                        解決に導くサポートを行う中で、<strong>コミュニケーション能力と課題発見能力</strong>を
+                        向上させることができたと考えています。
+                        この経験を活かし、チーム開発においても円滑な意思疎通と相互理解に貢献したいと考えています。
                     </p>
                     <div class="about-details">
                         <p><strong>誕生日:</strong> 7月6日</p>
-                        <p><strong>趣味:</strong> イラスト制作、知らない土地の探検</p>
+                        <p><strong>趣味:</strong> 創作全般、知らない土地の探検</p>
                     </div>
                 </div>
             </div>
@@ -101,10 +109,10 @@
                 ご興味を持っていただけましたら、ぜひお気軽にご連絡ください。
             </p>
             <div class="contact-links">
-                <a href="mailto:your.email@example.com" class="contact-btn">
+                <a href="mailto:nogami@vr.info.hiroshima-cu.ac.jp" class="contact-btn">
                     Email
                 </a>
-                <a href="https://github.com/your-github-id" target="_blank" class="contact-btn">
+                <a href="https://github.com/NogamiYudai" target="_blank" class="contact-btn">
                     GitHub
                 </a>
             </div>

@@ -106,28 +106,49 @@ p {
 
 
 /* Hero Section */
+/* ★★★★★ ここが今回の修正箇所です ★★★★★ */
 .hero {
+    position: relative; /* 子要素を絶対配置するための基準 */
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
     padding: 0 1rem;
+    color: #fff;
+    overflow: hidden; /* canvasがはみ出さないように */
+    background: #a6c1ee; /* JSで色が変わる前の初期背景 */
 }
+
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* ★ 重ね順を1番下(背景)に設定 */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* ★ 重ね順を2番目(キャンバスの上)に設定 */
+}
+/* ★★★★★ ここまで ★★★★★ */
 
 .hero-title {
     font-family: var(--font-family-accent);
     font-size: 2.5rem;
-    color: var(--heading-color);
+    color: #ffffff;
     margin-bottom: 1rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: var(--primary-hover-color);
+    color: rgba(255, 255, 255, 0.9);
     min-height: 2.5rem;
     font-weight: 700;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* General Section Styling */
@@ -166,33 +187,6 @@ p {
 .about-image img {
     width: 100%;
     border-radius: 50%;
-}
-
-/* Skills Section */
-.skills-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* スマホでは1列 */
-    gap: 1.5rem;
-}
-
-.skill-card {
-    background-color: var(--card-color);
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.skill-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-}
-
-.skill-card i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
 }
 
 /* Works Section */
@@ -317,160 +311,6 @@ p {
 }
 
 
-/* =================================== */
-/* ===== 詳細ページ用のスタイル（共通） ===== */
-/* =================================== */
-
-.work-detail .section-container {
-    padding-top: 6rem;
-}
-
-.work-detail-title {
-    font-size: 1.8rem;
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-.section-subtitle {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 0.5rem;
-}
-
-.work-detail-media,
-.work-detail-features,
-.work-detail-system,
-.work-detail-core,
-.work-detail-future {
-    background-color: var(--card-color);
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
-    margin-bottom: 2rem;
-}
-
-/* デモ動画は常に中央揃え */
-.work-detail-media {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.work-detail-media video {
-    max-width: 100%;
-    border-radius: 8px;
-}
-
-.caption {
-    margin-top: 0.5rem;
-    color: var(--sub-text-color);
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-.work-detail-features,
-.work-detail-core {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.work-detail-features .feature-text ul {
-    padding-left: 1.2rem;
-}
-
-.work-detail-features .feature-images {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-
-/* ★ 修正点: 特徴欄の画像スタイル */
-.work-detail-features figure {
-    margin: 0;
-    text-align: center;
-    width: 100%;
-    flex: 1;
-}
-
-.work-detail-features figure .img-wrapper {
-    width: 100%;
-    aspect-ratio: 1 / 1; /* ★ 修正点: 画像のコンテナを正方形にする */
-    overflow: hidden;
-    border-radius: 12px; /* ★ 修正点: 角丸を少し大きく */
-    margin-bottom: 0.5rem;
-}
-
-.work-detail-features figure img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.work-detail-features figcaption {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--sub-text-color);
-    text-align: center;
-}
-/* ★ 修正ここまで */
-
-.work-detail-core .core-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 8px;
-}
-
-.subsection-title {
-    font-size: 1.3rem;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.work-detail-system .system-description ul {
-    padding-left: 1.2rem;
-}
-
-.system-diagram {
-    text-align: center;
-    margin-top: 1.5rem;
-}
-
-.system-diagram figure {
-    margin: 0;
-    display: inline-block;
-    max-width: 100%;
-}
-
-.system-diagram figure img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-.work-detail-core h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.4rem;
-}
-
-.work-detail-back {
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.work-detail-back a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-
 /* ======================================================= */
 /* ===== PC用のスタイル (769px以上の画面幅で適用) ===== */
 /* ======================================================= */
@@ -509,20 +349,6 @@ p {
         flex: 0 0 200px;
     }
 
-    /* Skills Section */
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2列 */
-        gap: 2rem;
-    }
-
-    .skill-card {
-        padding: 2.5rem;
-    }
-    
-    .skill-card i {
-        font-size: 3rem;
-    }
-
     /* Works Section */
     .works-grid {
         gap: 2.5rem;
@@ -542,55 +368,5 @@ p {
     
     .work-title {
         font-size: 1.8rem;
-    }
-
-    /* 詳細ページ */
-    .work-detail .section-container {
-        max-width: 960px;
-    }
-
-    .work-detail-title {
-        font-size: 2.8rem;
-    }
-
-    .section-subtitle {
-        font-size: 2rem;
-    }
-    
-    .work-detail-features,
-    .work-detail-core {
-        flex-direction: row;
-        align-items: flex-start;
-        padding: 2rem;
-        gap: 2rem;
-    }
-    
-    .work-detail-features .feature-text,
-    .work-detail-core .core-text {
-        flex: 1;
-    }
-
-    /* ★ 修正点: PCでの画像領域を少し広くする */
-    .work-detail-features .feature-images {
-        flex: 1.2;
-    }
-    
-    .work-detail-core .core-image {
-        flex: 0 0 40%;
-    }
-
-    /* ★ システム構成のPC用スタイル */
-    .work-detail-system .system-description {
-        display: flex;
-        gap: 2rem;
-        justify-content: center;
-    }
-
-    .work-detail-system .system-spec {
-        flex: 1; /* 左右のブロックが均等な幅を持つ */
-    }
-
-    .system-diagram figure {
-        max-width: 60%; /* PCでは少し小さくして見栄えを調整 */
     }
 }
