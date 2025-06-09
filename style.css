@@ -1,588 +1,596 @@
-body{
-    margin: 0;
+:root {
+    /* 色の再定義 */
+    --bg-color: #f8f9fa; /* 少しクールな白 */
+    --card-color: #ffffff;
+    --primary-color: #ff7f50; /* コーラルオレンジ */
+    --primary-hover-color: #ff6347; /* トマト */
+    --heading-color: #212529; /* 見出し用の濃い黒 */
+    --text-color: #495057; /* 本文用の少し柔らかい黒 */
+    --sub-text-color: #6c757d; /* 注釈用のグレー */
+    --font-family-base: 'M PLUS Rounded 1c', sans-serif;
+    --font-family-accent: 'Roboto', sans-serif;
+}
+
+*, *::before, *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-html{
-    font-size: 62.5%
+html {
+    scroll-behavior: smooth;
 }
 
-/* header */
-header{
-    width: 100%;
-    height: 80vh;
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family-base);
+    line-height: 1.8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+}
+
+p {
+    color: var(--text-color);
+}
+
+/* Header */
+.header {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #dee2e6;
     display: flex;
     justify-content: space-between;
-    padding-top: 2rem ;
-    position: relative;
-}
-
-.bgi{
-    position: absolute;
+    align-items: center;
+    padding: 1rem 5%;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
+    z-index: 1000;
 }
 
-.bgi img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 親要素に収まるように画像のサイズを調整 */
+.header-logo a {
+    color: var(--heading-color);
+    font-family: var(--font-family-accent);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-header ul{
+.header-logo a:hover {
+    color: var(--primary-color);
+}
+
+.header-nav {
+    display: none; /* スマホでは非表示 */
+}
+
+.header-nav ul {
     display: flex;
-    padding-left: 0;
-}
-
-header ul li{
     list-style: none;
-    margin-left: 45px;
+    gap: 2rem;
 }
 
-header ul li a{
-    color: black;
+.header-nav a {
+    color: var(--heading-color);
     text-decoration: none;
-    font-size: 1.7rem;
-    font-weight: bold;
+    font-size: 1rem;
+    font-weight: 700;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
 }
 
-header ul li a:hover{
-    opacity: 0.5;
-}
-
-.logo{
-    padding-left: 2rem;
-    height: 50px;
-}
-
-.logo a{
-    color: black;
-    text-decoration: none;
-}
-
-.logo a:hover{
-    opacity: 0.5;
-}
-
-.menu{
-    margin-right: 2rem;
-    height: 50px;
-}
-
-.top{
+.header-nav a::after {
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #ffff;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
 }
 
-.top h1{
-    font-size: 5rem;
-    margin: 0;
-    text-align: center;
+.header-nav a:hover {
+    color: var(--primary-color);
 }
 
-.top p{
-    font-size: 1.6rem;
-    text-align: center;
-    margin-top: 0;
+.header-nav a:hover::after {
+    width: 100%;
 }
 
-/* about */
-.about{
-    margin: 100px auto;
-}
 
-.about_title h1{
-    text-align: center;
-    font-size: 5rem;
-}
-
-.about_profile{
+/* Hero Section */
+.hero {
+    height: 100vh;
     display: flex;
-    justify-content: space-around;
-    padding: 0 30%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    padding: 0 1rem;
 }
 
-.about_img img{
+.hero-title {
+    font-family: var(--font-family-accent);
+    font-size: 2.5rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--primary-hover-color);
+    min-height: 2.5rem;
+    font-weight: 700;
+}
+
+/* General Section Styling */
+.section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+}
+
+.section-title {
+    font-family: var(--font-family-accent);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    flex-direction: column; /* スマホでは縦並び */
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    background-color: var(--card-color);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+}
+
+.about-image {
+    flex: 0 0 150px;
+    width: 150px;
+}
+
+.about-image img {
+    width: 100%;
     border-radius: 50%;
 }
 
-.about_text h1{
-    font-size: 3rem;
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* スマホでは1列 */
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background-color: var(--card-color);
+    padding: 2rem;
+    border-radius: 12px;
     text-align: center;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.about_text p{
-    font-size: 1.6rem;
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* about_page */
-.about_header{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 2rem ;
-    position: relative;
-}
-
-.about_header ul{
-    display: flex;
-    padding-left: 0;
-}
-
-.about_header ul li{
-    list-style: none;
-    margin-left: 45px;
-}
-
-.about_header ul li a{
-    color: black;
-    text-decoration: none;
-    font-size: 1.7rem;
-    font-weight: bold;
-}
-
-.about_header ul li a:hover{
-    opacity: 0.5;
-}
-
-.about_page{
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.about_page img{
-    width: 100%;
-    display: block; 
-    margin: 0 auto; 
-}
-
-.introduction h1{
-    font-size: 3rem;
-    margin-top: 50px;
-}
-
-.introduction p,.introduction ul li{
-    font-size: 1.6rem;
-}
-
-
-/* production */
-.production_header{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 2rem ;
-    position: relative;
-}
-
-.production_header ul{
-    display: flex;
-    padding-left: 0;
-}
-
-.production_header ul li{
-    list-style: none;
-    margin-left: 45px;
-}
-
-.production_header ul li a{
-    color: black;
-    text-decoration: none;
-    font-size: 1.7rem;
-    font-weight: bold;
-}
-
-.production_header ul li a:hover{
-    opacity: 0.5;
-}
-
-.production{
-    margin: 100px auto;
-    background-color: #f7f7f7;;
-}
-
-.production_title h1{
-    text-align: center;
-    font-size: 5rem;
-}
-
-.productions{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.productions_dance,.productions_shark,.productions_self{
-    width: 25%;
-}
-
-.productions img{
-    width: 100%;
-    height: 90%;
-    object-fit: contain;
-}
-
-.productions p{
-    text-align: center;
-    font-size: 1.3rem;
-    margin: 0;
-}
-
-/* production_page */
-.production_page{
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.works{
-    width: 70%;
-    margin: 50px auto;
-    text-align: center;
-}
-
-.works img{
-    width: 100%;
-}
-
-.works h3{
+.skill-card i {
     font-size: 2.5rem;
-    margin: 0;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
-.works p{
-    font-size: 1.6rem;
-    margin-top: 0;
+/* Works Section */
+.works-grid {
+    display: grid;
+    gap: 2rem;
 }
 
-/* learning */
-.learning_header{
+.work-card {
+    background-color: var(--card-color);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* スマホでは縦並び */
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.work-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.work-image img {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 2rem ;
-    position: relative;
+    height: auto;
+    object-fit: cover;
+    display: block;
 }
 
-.learning_header ul{
-    display: flex;
-    padding-left: 0;
+.work-content {
+    padding: 1.5rem;
 }
 
-.learning_header ul li{
-    list-style: none;
-    margin-left: 45px;
+.work-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.learning_header ul li a{
-    color: black;
+.work-tags {
+    margin-bottom: 1rem;
+}
+
+.work-tags span {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    margin-right: 0.5rem;
+    display: inline-block;
+    margin-top: 0.25rem;
+}
+
+.work-link {
+    color: var(--primary-color);
     text-decoration: none;
-    font-size: 1.7rem;
-    font-weight: bold;
+    font-weight: 700;
+    display: block;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
 }
 
-.learning_header ul li a:hover{
-    opacity: 0.5;
+.work-link:hover {
+    color: var(--primary-hover-color);
 }
 
-.learning{
-    margin-bottom: 100px;
-}
-
-.learning_title h1{
+/* Contact Section */
+.contact-message {
     text-align: center;
-    font-size: 5rem;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
 }
 
-.course{
+.contact-links {
     display: flex;
     justify-content: center;
-    width: 100%;
-    margin-bottom: 50px;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
-.course_title{
-    width: 30%;
-    margin: auto 0;
+.contact-btn {
+    color: #fff;
+    background-color: var(--primary-color);
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.course_img img{
-    width: 100%;
-    height: 300px;
+.contact-btn:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-5px);
 }
 
-.course_title h1{
-    font-size: 4rem;
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #fff;
+    border-top: 1px solid #dee2e6;
+    color: var(--sub-text-color);
+    font-size: 0.9rem;
 }
 
-.course_title p{
-    font-size: 1.6rem;
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* learning_page */
-.learnings{
-    max-width: 800px;
-    margin: 4rem auto;
-    border: 1px solid gray;
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.learning_img{
+
+/* =================================== */
+/* ===== 詳細ページ用のスタイル（共通） ===== */
+/* =================================== */
+
+.work-detail .section-container {
+    padding-top: 6rem;
+}
+
+.work-detail-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+.work-detail-media,
+.work-detail-features,
+.work-detail-system,
+.work-detail-core,
+.work-detail-future {
+    background-color: var(--card-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+/* デモ動画は常に中央揃え */
+.work-detail-media {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 }
 
-.learnings h1{
-    text-align: center;
-    font-size: 4rem;
+.work-detail-media video {
+    max-width: 100%;
+    border-radius: 8px;
 }
 
-.learnings img {
-    width: 40%;
-    height: 300px;
-    margin: 10px;
-}
-
-.learning_text{
-    max-width: 1200px;
-    margin: 0 auto;
-    font-size: 1.6rem;
-}
-
-
-/* contact */
-.contact{
-    background-color: #f7f7f7;
-}
-
-.contact_title h1{
-    text-align: center;
-    font-size: 5rem;
-}
-
-.form{
+.caption {
+    margin-top: 0.5rem;
+    color: var(--sub-text-color);
+    font-size: 0.9rem;
     text-align: center;
 }
 
-.form p{
-    font-size: 1.6rem;
+.work-detail-features,
+.work-detail-core {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-.button{
-    margin-top: 20px;
+.work-detail-features .feature-text ul {
+    padding-left: 1.2rem;
 }
 
-/* footer */
-footer{
-    margin-top: 30px;
+.work-detail-features .feature-images {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* ★ 修正点: 特徴欄の画像スタイル */
+.work-detail-features figure {
+    margin: 0;
     text-align: center;
-    font-size: 1.2rem;
+    width: 100%;
+    flex: 1;
 }
 
-/* タブレットレスポンシブ */
-@media (max-width:960px) {
-    header{
-        height: 40vh;
+.work-detail-features figure .img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* ★ 修正点: 画像のコンテナを正方形にする */
+    overflow: hidden;
+    border-radius: 12px; /* ★ 修正点: 角丸を少し大きく */
+    margin-bottom: 0.5rem;
+}
+
+.work-detail-features figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.work-detail-features figcaption {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--sub-text-color);
+    text-align: center;
+}
+/* ★ 修正ここまで */
+
+.work-detail-core .core-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+.subsection-title {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.work-detail-system .system-description ul {
+    padding-left: 1.2rem;
+}
+
+.system-diagram {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.system-diagram figure {
+    margin: 0;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.system-diagram figure img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.work-detail-core h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.work-detail-back {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.work-detail-back a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+
+/* ======================================================= */
+/* ===== PC用のスタイル (769px以上の画面幅で適用) ===== */
+/* ======================================================= */
+@media (min-width: 769px) {
+
+    .header-nav {
+      display: block; /* PCではナビゲーション表示 */
     }
 
-    header ul,.about_header ul,.production_header ul,.learning_header ul{
-        display: block;
-    }
-
-    header ul li a,.about_header ul li a,.production_header ul li a,.learning_header ul li a{
-        font-size: 1.5rem;
-    }
-
-    .about_title h1,.production_title h1,.learning_title h1,.contact_title h1{
-        font-size: 4rem;
-    }
-
-    .course_title h1{
-        font-size: 3rem;
+    .section-container {
+        padding: 6rem 2rem;
     }
     
-    .course_title p{
-        font-size: 1.4rem;
-    }
-
-
-    .bgi{
-        height: 100%;
-    }
-
-    .top{
-        top: 20%;
-    }
-
-    .top h1{
-        font-size: 3rem;
-    }
-
-    .about{
-       width: 100%;
-    }
-
-    .about_profile{
-        width: 100%;
-        display: block;
-        padding: 0;
-    }
-
-    .about_img{
-        text-align: center;
-    }
-
-    .about_img img{
-        border-radius: 50%;
+    .hero-title {
+        font-size: 4.5rem;
     }
     
-    .about_text h1{
+    .hero-subtitle {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
         font-size: 2.5rem;
-        text-align: center;
+        margin-bottom: 3rem;
     }
     
-    .about_text p{
-        font-size: 1.5rem;
-        text-align: center;
+    /* About Section */
+    .about-content {
+        flex-direction: row; /* 横並び */
+        text-align: left;
+        padding: 3rem;
+        gap: 3rem;
     }
 
-    .productions{
-        display: block;
-    }
-    .productions_dance,.productions_shark,.productions_self{
-        width: 70%;
-        height: 450px;
-        margin: 0 auto;
+    .about-image {
+        flex: 0 0 200px;
     }
 
-    .course{
-        display: block;
+    /* Skills Section */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2列 */
+        gap: 2rem;
     }
 
-    .course_title{
-        width: 100%;
+    .skill-card {
+        padding: 2.5rem;
     }
-
-    .course_title h1{
-        text-align: center;
-    }
-
-    .course_title p{
-        width: 90%;
-        margin: 10px auto;
-    }
-
-    .course_img{
-        text-align: center;
-    }
-
-    .course_img img{
-        width: 90%;
-        height: 450px;
-    }
-
-    .learning_img{
-        display: block;
-        text-align: center;
-    }
-
-    .learning_img img{
-        width: 90%;
-        height: 500px;
-        object-fit: contain;
-    }
-
-    .introduction h1{
-        font-size: 2.5rem;
-        text-align: center;
-    }
-
-    .works{
-        width: 100%;
-    }
-
-}
-
-/* スマホレスポンシブ */
-@media (max-width:480px) {
-    header{
-        height: 30vh;
-    }
-
-    header ul li a,.about_header ul li a,.production_header ul li a,.learning_header ul li a{
-        font-size: 1.2rem;
-    }
-
-    .logo a{
-        font-size: 1.7rem;
-    }
-
-
-    .top h1{
-        font-size: 1.3rem;
-    }
-
-    .about_title h1,.production_title h1,.learning_title h1,.contact_title h1{
+    
+    .skill-card i {
         font-size: 3rem;
     }
 
-    .about_text h1{
+    /* Works Section */
+    .works-grid {
+        gap: 2.5rem;
+    }
+    
+    .work-card {
+        flex-direction: row; /* 横並び */
+    }
+
+    .work-image {
+        flex: 0 0 40%;
+    }
+
+    .work-content {
+        padding: 2rem;
+    }
+    
+    .work-title {
+        font-size: 1.8rem;
+    }
+
+    /* 詳細ページ */
+    .work-detail .section-container {
+        max-width: 960px;
+    }
+
+    .work-detail-title {
+        font-size: 2.8rem;
+    }
+
+    .section-subtitle {
         font-size: 2rem;
     }
     
-    .about_text p{
-        font-size: 1.3rem;
-        text-align-last: left;
-    }
-
-    input,textarea{
-        width: 90%;
-    }
-
-    .button input{
-        width: 10%;
-    }
-
-    .productions_dance,.productions_shark,.productions_self{
-        width: 100%;
-        height: 300px;
-        margin: 30px auto;
+    .work-detail-features,
+    .work-detail-core {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 2rem;
+        gap: 2rem;
     }
     
-    .course_title p{
-        font-size: 1.3rem;
+    .work-detail-features .feature-text,
+    .work-detail-core .core-text {
+        flex: 1;
     }
 
-    .course_img img{
-        height: 250px;
-    }
-
-    .works iframe{
-        width: 100%;
-        height: 300px;
-    }
-
-    .learnings{
-        margin: 4rem 1rem;
+    /* ★ 修正点: PCでの画像領域を少し広くする */
+    .work-detail-features .feature-images {
+        flex: 1.2;
     }
     
-
-    .learning_img img{
-        width: 90%;
-        height: 250px;
+    .work-detail-core .core-image {
+        flex: 0 0 40%;
     }
 
-    .learnings h1{
-        font-size: 2rem;
+    /* ★ システム構成のPC用スタイル */
+    .work-detail-system .system-description {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
     }
 
-    .contact{
-        background-color: #fff;
+    .work-detail-system .system-spec {
+        flex: 1; /* 左右のブロックが均等な幅を持つ */
     }
-    
+
+    .system-diagram figure {
+        max-width: 60%; /* PCでは少し小さくして見栄えを調整 */
+    }
 }

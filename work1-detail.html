@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>足裏荷重による歩行・跳躍可能なアバタ操作システム - Yudai Nogami Portfolio</title>
+    <!-- CSSファイル名が test.css の場合は、そちらに書き換えてください -->
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-logo">
+            <!-- 変更点: ロゴを「PORTFOLIO」に変更 -->
+            <a href="./index.html">PORTFOLIO</a>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <!-- 変更点: 「Skills」のリンクを削除 -->
+                <li><a href="./index.html#about">About</a></li>
+                <li><a href="./index.html#works">Works</a></li>
+                <li><a href="./index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="work-detail">
+        <div class="section-container">
+            <h1 class="work-detail-title">足裏荷重による歩行・跳躍可能なアバタ操作システム（アニメーション動作）</h1>
+
+            <section>
+                <h2 class="section-subtitle">概要</h2>
+                <p>
+                    VR空間でのモーションキャプチャなどによるアバタ制御は、ユーザの動ける範囲に現実空間の壁や家具などの物理的な制約を受けてしまいます。本研究では、現実空間でユーザが定位置から移動することなく、VR空間上でアバタを自由に歩行・跳躍動作を行うアバタ制御システムを提案しています。
+                </p>
+            </section>
+
+            <section>
+                <h2 class="section-subtitle">デモンストレーション</h2>
+                <div class="work-detail-media">
+                    <video src="videos/work1-demo.mp4" controls loop poster="images/work1-thumbnail.jpg" muted playsinline style="max-width: 100%; width: 80%;"></video>
+                    <p class="caption">デモンストレーション映像</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-subtitle">特徴</h2>
+                <div class="work-detail-features">
+                    <div class="feature-text">
+                        <ul>
+                            <li>ユーザはデバイス上にいるため、室内を動き回る必要がありません。</li>
+                            <li>ユーザの足裏荷重を用いることで、その場での足踏み動作と重心移動で歩行・跳躍動作を行います。</li>
+                            <li>ユーザの動作を推定し、アニメーションによってアバタを動作させます。</li>
+                        </ul>
+                    </div>
+                    <div class="feature-images">
+                        <figure>
+                            <img src="images/loadcell-device.jpg" alt="足裏荷重デバイス">
+                            <figcaption>足裏荷重デバイス</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="images/device-usage.jpg" alt="デバイス使用時の様子">
+                            <figcaption>デバイス使用時の様子</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-subtitle">システム構成</h2>
+                <div class="system-layout"> 
+                    <div class="system-text">
+                        <h3 class="subsection-title">ハードウェア</h3>
+                        <ul>
+                            <li>Arduino UNO</li>
+                            <li>ロードセルセンサ</li>
+                            <li>HX711 コンバータ</li>
+                        </ul>
+                        <h3 class="subsection-title">ソフトウェア</h3>
+                        <ul>
+                            <li>Unity</li>
+                            <li>Arduino IDE</li>
+                        </ul>
+                    </div>
+                    <div class="system-diagram">
+                        <figure>
+                            <img src="images/system-diagram1.png" alt="システム概要図">
+                            <figcaption>システム概要図</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <div class="work-detail-back">
+                <a href="./index.html#works">&larr; Works一覧へ戻る</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Yudai Nogami. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

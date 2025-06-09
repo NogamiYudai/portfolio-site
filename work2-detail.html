@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>足裏荷重による歩行・跳躍可能なアバタ制御システム（IK制御） - Yudai Nogami Portfolio</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script> </head>
+<body>
+
+    <header class="header">
+        <div class="header-logo">
+            <a href="./">Y.NOGAMI</a>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="./#about">About</a></li>
+                <li><a href="./#skills">Skills</a></li>
+                <li><a href="./#works">Works</a></li>
+                <li><a href="./#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="work-detail">
+        <section class="section-container">
+            <h1 class="work-detail-title">足裏荷重による歩行・跳躍可能な<br>アバタ制御システム（IK制御）</h1>
+
+            <h2 class="section-subtitle">概要</h2>
+            <p>
+                現在、研究開発中のプロジェクトです。本研究ではユーザーの動ける範囲に現実空間の物理的な制約を受けないために、現実空間でユーザーはデバイス上から移動することなく、VR空間でアバターが自由に歩行・跳躍動作を行うアバター制御システムを提案しています。
+            </p>
+            <p>
+                <a href="work1-detail.html">これまでの研究（アニメーション制御）</a>では、アバターの状態遷移にあわせてアニメーションを再生していましたが、本研究ではユーザーの足裏荷重の変動によってアバターの足や腰などのリグを直接制御しています。
+            </p>
+
+            <h2 class="section-subtitle">デモンストレーション</h2>
+            <div class="work-detail-media">
+                <video src="videos/work2-demo.mp4" controls loop poster="images/work2-thumbnail.jpg" width="80%" muted playsinline></video>
+                <p class="caption">デモンストレーション映像（IK制御）</p>
+            </div>
+
+            <h2 class="section-subtitle">特徴</h2>
+            <div class="work-detail-features">
+                <div class="feature-text">
+                    <ul>
+                        <li>ユーザーはデバイス上にいるため、室内を動き回る必要がない。</li>
+                        <li>ユーザーの足裏荷重を用いることで、その場での足踏み動作と重心移動で歩行・跳躍動作を行う。</li>
+                        <li>ユーザーの動作によって、アバターの足や腰のリグを直接制御する。</li>
+                    </ul>
+                </div>
+                <div class="feature-images">
+                    <figure>
+                        <img src="images/loadcell-device.jpg" alt="足裏荷重デバイス">
+                        <figcaption>足裏荷重デバイス</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="images/device-usage.jpg" alt="デバイス使用時の様子">
+                        <figcaption>デバイス使用時の様子</figcaption>
+                    </figure>
+                </div>
+            </div>
+            <h2 class="section-subtitle">システム構成</h2>
+            <div class="work-detail-system">
+                <h3 class="subsection-title">ハードウェア</h3>
+                <ul>
+                    <li>Arduino UNO</li>
+                    <li>ロードセルセンサ</li>
+                    <li>HX711 コンバータ</li>
+                </ul>
+                <h3 class="subsection-title">ソフトウェア</h3>
+                <ul>
+                    <li>Unity</li>
+                    <li>Arduino IDE</li>
+                </ul>
+                <div class="system-diagram">
+                    <figure>
+                        <img src="images/system-diagram2.png" alt="システム概要図（IK制御版）">
+                        <figcaption>システム概要図（IK制御版）</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <h2 class="section-subtitle">今後の課題</h2>
+            <div class="work-detail-future">
+                <p>
+                    現在は歩行と跳躍の基本的な動作に留まっていますが、今後はより多様なユーザーの動き（横移動、回転、走り動作など）に対応するための制御モデルを構築することが目標です。また、荷重データからアバターの上半身の動きを自然に生成する研究にも取り組んでいきたいと考えています。
+                </p>
+            </div>
+            <div class="work-detail-back">
+                <a href="./#works">&larr; Works一覧へ戻る</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Yudai Nogami. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
